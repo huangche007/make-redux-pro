@@ -6,7 +6,7 @@ class Content extends Component {
     render () {
         return (
             <div>
-                <p>React.js 小书内容</p>
+                <p>手写Redux内容</p>
                 <ThemeSwitch />
             </div>
         )
