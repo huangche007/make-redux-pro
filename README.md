@@ -50,9 +50,40 @@
 
 	     Dumb
 
+如src--->components--->Header
+
+	import React,{Component} from 'react'
+	import PropTypes from 'prop-types'
+	export default class Header extends Component{
+	    static propTypes = {
+	        themeColor:PropTypes.string
+	    }
+	    render () {
+	        return (
+	            <h1 style={{color:this.props.themeColor}}>手写Redux Header</h1>
+	        )
+	    }
+	}
+
+上面的header就是一个Dumb组件，只根据props进行数据的渲染
+
        containers
 
 		 Smart
+
+如src--->containers--->Header
+
+	import { connect } from '../m-react-redux'
+	import Header from '../components/Header'
+
+	const mapStateToProps = (state) => {
+	    return {
+	        themeColor: state.themeColor
+	    }
+	}
+	export default connect(mapStateToProps)(Header)
+
+把上面dumb中Header组件组合,通过props来控制它
 
 那么dumb组件与smart组件有什么区别呢？
 
